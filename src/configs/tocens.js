@@ -1,0 +1,3 @@
+const _accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNzA2OTA5N2MwMzhhMGRhNTNmODgzNjcxNmZiZmU4MSIsInN1YiI6IjYzNGE3Yzc5MTA4OWJhMDA3ZDUzNzUzZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oWUeLFOychrScGddQwcpcqEGBRahqopNvHr5OIWy33o'
+
+export {_accessToken}

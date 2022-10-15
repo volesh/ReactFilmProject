@@ -1,0 +1,29 @@
+.wrap{
+    height: 100px;
+}
+
+.header{
+    width: 100%;
+    height: 100px;
+    background: grey;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    z-index: 100000;
+}
+.logo{
+    width: 120px;
+    height: 60px;
+    background: aqua;
+}
+.input{
+    width: 400px;
+    height: 40px;
+    background: aqua;
+}
+.userDiv{
+    width: 120px;
+    height: 40px;
+    background: aqua;
+}
