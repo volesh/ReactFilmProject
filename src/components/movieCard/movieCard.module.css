@@ -1,20 +1,40 @@
 .card{
     box-sizing: border-box;
     width: 23%;
+    height: 270px;
     position: relative;
-    min-height: 300px;
+    min-height: 250px;
     overflow: hidden;
     background: azure;
     border-radius: 20px;
+    transform: scale(100%);
+    transition: 0.3s;
 }
 
-.imgDiv{
-    height: 60%;
-}
 
 .img {
     width: 100%;
+    height: 160px;
     left: 0;
     top: 0;
     z-index: 0;
+    display: block;
+
+}
+
+.rating{
+    background: rgba(240,255,255,0.7);
+    border-radius: 5px;
+    padding: 3px;
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: 115px;
+    left: 10px;
+    z-index: 2;
+
+}
+
+.card:hover{
+    transform: scale(110%);
 }
