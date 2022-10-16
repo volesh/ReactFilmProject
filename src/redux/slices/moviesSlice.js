@@ -1,9 +1,12 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
-import {moviesService} from "../../services";
+
+import {genresService, moviesService} from "../../services";
 
 const initialState = {
     movies:[],
-    search:null,
+    genres:[],
+    selectedGenre:null,
+    search:'',
     pages:0,
     selectedMovie:null,
     error:null,
@@ -27,7 +30,6 @@ const getBySearchParams = createAsyncThunk(
     async ({currentPage, search}, {rejectWithValue})=>{
         try {
             const {data} = await moviesService.getBySearchParams(currentPage, search)
-            // console.log(data);
             return data
         }catch (e) {
             return rejectWithValue(e.response.data)
@@ -35,11 +37,28 @@ const getBySearchParams = createAsyncThunk(
     }
 )
 
+const getGenres = createAsyncThunk(
+    'moviesSlice/getGenres',
+    async (_, {rejectWithValue})=>{
+        try {
+            const {data} = await genresService.getGenres()
+            return data
+        }catch (e) {
+            return rejectWithValue(e.response.data)
+        }
+    }
+)
+
+
+
 const moviesSlice = createSlice({
     name:'moviesSlice',
     initialState,
     reducers:{
         setSearch:(state, action)=>{
+            state.search = action.payload
+        },
+        setGenre:(state, action)=>{
             state.search = action.payload
         }
     },
@@ -53,6 +72,9 @@ const moviesSlice = createSlice({
                 state.pages = action.payload.total_pages
                 state.movies = action.payload.results
             })
+            .addCase(getGenres.fulfilled, (state, action)=>{
+                state.genres = action.payload
+            })
 })
 
 const {reducer:movieReducer, actions:{setSearch}} = moviesSlice
@@ -60,7 +82,7 @@ const {reducer:movieReducer, actions:{setSearch}} = moviesSlice
 const movieActions = {
     getAll,
     getBySearchParams,
-    setSearch
+    setSearch,
 }
 
-export {movieActions, movieReducer}
+export {movieReducer, movieActions}

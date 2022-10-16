@@ -1,30 +1,14 @@
 .wrap{
     padding: 50px;
-    background: bisque;
+    background: #45f3ff;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
 }
 
-.genresDiv{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    background: aquamarine;
-    gap: 10px;
-    margin-bottom: 50px;
-}
 
-.genresDiv div{
-    width: 200px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #cb8d8d;
 
-}
 
 .moviesDiv{
     box-sizing: border-box;
