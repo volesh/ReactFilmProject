@@ -31,7 +31,9 @@ const genresSlice = createSlice({
     initialState,
     reducers:{
         setGenre:(state, action)=>{
-            state.search = action.payload
+            state.selectedGenre = action.payload
+            console.log(state.selectedGenre);
+
         }
     },
     extraReducers:builder =>

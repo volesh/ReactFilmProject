@@ -24,9 +24,11 @@ const Header = () => {
             <header className={css.header}>
                 <div className={css.logo}>Vasyl Olesh</div>
                 <HeaderMenu/>
-                <div className={css.inputBlock}>
-                    <input className={css.input} value={inputValue} onChange={(elem)=>changeValue(elem.target.value)} type="text"/>
+                <div className={css.inputBlock} >
+                    <input type="text" required="required" value={inputValue} onChange={(elem)=>changeValue(elem.target.value)}/>
+                    <span>Find</span>
                     <div className={css.searchIcon}>{inputValue?<FontAwesomeIcon onClick={()=>changeValue('')} icon={faXmark} />:<FontAwesomeIcon icon={faSearch} />}</div>
+                    <i></i>
                 </div>
                 <div className={css.userDiv}>user</div>
             </header>

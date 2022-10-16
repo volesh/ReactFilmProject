@@ -10,23 +10,28 @@ import {Genre} from "../genre/Genre";
 
 
 const Movies = () => {
-    const [currentPage, setCurrentPage] = useState(1)
-    const {movies, search, pages} = useSelector(state => state.movieReducer)
+    const {movies, search, pages, currentPage} = useSelector(state => state.movieReducer)
+    const {selectedGenre} = useSelector(state => state.genresReducer)
     const dispatch = useDispatch()
 
 
     useEffect(()=>{
         if (search === '' || !search){
             dispatch(movieActions.getAll({currentPage}))
-        }else {
+        }if(selectedGenre){
+            dispatch(movieActions.getWithGenre({currentPage, genre:selectedGenre.toString()}))
+        } else {
             dispatch(movieActions.getBySearchParams({currentPage, search}))
         }
-    },[currentPage, search])
+    },[currentPage, search, selectedGenre])
+
+    const setCurrentPage = (page) => {
+        dispatch(movieActions.setCurrentPage(page))
+    }
 
     return (
         <div className={css.wrap}>
             <Genre/>
-            <h3>Фільми</h3>
             <div className={css.moviesDiv}>
                 {movies.map(movie => <MovieCard key={movie.id} movie={movie}/>)}
             </div>
