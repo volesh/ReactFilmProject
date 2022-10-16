@@ -10,7 +10,7 @@ import css from './movies.module.css'
 
 const Movies = () => {
     const [currentPage, setCurrentPage] = useState(1)
-    const {movies, search} = useSelector(state => state.movieReducer)
+    const {movies, search, pages} = useSelector(state => state.movieReducer)
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -40,7 +40,7 @@ const Movies = () => {
                     <Pagination
                         page={currentPage}
                         // Вписав число 500 томущо інші сторінки апішка не повертає
-                        count={500}
+                        count={pages>500?500:pages}
                         onChange={(_, page)=>setCurrentPage(page)}
                     />
                 </Stack>

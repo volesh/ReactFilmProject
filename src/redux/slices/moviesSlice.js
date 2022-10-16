@@ -46,12 +46,12 @@ const moviesSlice = createSlice({
     extraReducers:builder =>
         builder
             .addCase(getAll.fulfilled, (state, action)=>{
+                state.pages = action.payload.total_pages
                 state.movies = action.payload.results
             })
             .addCase(getBySearchParams.fulfilled, (state, action)=>{
                 state.pages = action.payload.total_pages
                 state.movies = action.payload.results
-                console.log(state.movies);
             })
 })
 
