@@ -12,7 +12,7 @@ function App() {
         <Route path={'/maine'} element={<MaineLayout/>}>
             <Route path={'/maine'} element={<Navigate to={'/maine/films'}/>}/>
             <Route path={'films'} element={<MainePage/>}/>
-            <Route path={'movie'} element={<FilmInfoPage/>}/>
+            <Route path={'movie/:id'} element={<FilmInfoPage/>}/>
         </Route>
     </Routes>
   );

@@ -4,7 +4,6 @@ import {moviesService} from "../../services";
 
 const initialState = {
     movies:[],
-    currentMovie:null,
     search:'',
     pages:0,
     currentPage:1,
@@ -41,7 +40,6 @@ const getWithGenre = createAsyncThunk(
     'moviesSlice/getWithGenre',
     async ({currentPage, genre}, {rejectWithValue})=>{
         try {
-            console.log(genre);
             const {data} = await moviesService.getWithGenres(currentPage, genre)
             return data
         }catch (e) {
@@ -50,6 +48,18 @@ const getWithGenre = createAsyncThunk(
     }
 )
 
+
+const setCurrentMovieById = createAsyncThunk(
+    'moviesSlice/setCurrentMovieById',
+    async ({id}, {rejectWithValue})=>{
+        try {
+            const {data} = await moviesService.getMovieById(id)
+            return data
+        }catch (e) {
+            return rejectWithValue(e.response.data)
+        }
+    }
+)
 
 
 
@@ -62,10 +72,6 @@ const moviesSlice = createSlice({
         },
         setCurrentPage:(state, action)=>{
             state.currentPage = action.payload
-        },
-        setCurrentMovie:(state, action)=>{
-            state.currentMovie = action.payload
-            console.log(state.currentMovie);
         }
     },
     extraReducers:builder =>
@@ -82,9 +88,13 @@ const moviesSlice = createSlice({
                 state.pages = action.payload.total_pages
                 state.movies = action.payload.results
             })
+            .addCase(setCurrentMovieById.fulfilled, (state, action)=>{
+                state.selectedMovie = action.payload
+                console.log(state.selectedMovie);
+            })
 })
 
-const {reducer:movieReducer, actions:{setSearch, setCurrentPage, setCurrentMovie}} = moviesSlice
+const {reducer:movieReducer, actions:{setSearch, setCurrentPage}} = moviesSlice
 
 const movieActions = {
     getAll,
@@ -92,7 +102,7 @@ const movieActions = {
     setSearch,
     getWithGenre,
     setCurrentPage,
-    setCurrentMovie
+    setCurrentMovieById,
 }
 
 export {movieReducer, movieActions}

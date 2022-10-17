@@ -3,12 +3,16 @@ import { faFilm, faUser, faHeart, faEye} from '@fortawesome/free-solid-svg-icons
 
 import css from './headerMenu.module.css'
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 const HeaderMenu = () => {
+    const navigate = useNavigate()
     const [child, setChild] = useState(1)
 
     const active = (n) =>{
         setChild(n)
+        navigate('/maine/films')
+
     }
 
     return (

@@ -5,27 +5,25 @@ import {useDispatch, useSelector} from "react-redux";
 
 import css from './movieCard.module.css'
 import {useNavigate} from "react-router-dom";
-import {movieActions} from "../../redux";
+
 
 const MovieCard = ({movie}) => {
     const {genres} = useSelector(state => state.genresReducer)
     const {title,vote_average, poster_path,genre_ids,release_date} = movie
     const navigate = useNavigate()
-    const dispatch = useDispatch()
 
     const createGenre = (id) =>{
         const genre = genres.find(item => item.id === id)
         return genre.name
     }
 
-    const choseFilm = () =>{
-        dispatch(movieActions.setCurrentMovie(movie))
-        navigate('/maine/movie')
+    const choseFilm = (id) =>{
+        navigate(`/maine/movie/${id}`)
     }
 
     return (
-        <div onClick={choseFilm} className={css.card}>
-            <img className={css.img} src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={'Image not found'}/>
+        <div onClick={()=>choseFilm(movie.id)} className={css.card}>
+            <img className={css.img} src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title}/>
             <div>
                 <div className={css.movieInfo}>
                     <div>
