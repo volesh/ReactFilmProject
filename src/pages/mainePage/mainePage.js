@@ -1,11 +1,11 @@
-import {Header, Movies, Footer} from "../../components";
+import {Movies} from "../../components";
+import css from './mainePage.module.css'
+
 
 const MainePage = () => {
     return (
-        <div>
-            <Header/>
+            <div className={css.wrap}>
             <Movies/>
-            <Footer/>
         </div>
     );
 };

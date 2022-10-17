@@ -11,6 +11,7 @@ import {settings} from './settingsForSlider'
 const Genre = () => {
     const dispatch = useDispatch()
     const {genres, selectedGenre} = useSelector(state => state.genresReducer)
+    const {search} = useSelector(state => state.movieReducer)
 
     useEffect(()=>{
         dispatch(genresActions.getGenres())

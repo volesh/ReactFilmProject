@@ -1,7 +1,7 @@
 .card{
     box-sizing: border-box;
     width: 16%;
-    height: 350px;
+    height: 315px;
     position: relative;
     min-height: 250px;
     overflow: hidden;
@@ -11,15 +11,9 @@
     transition: 0.3s;
 }
 
-.card p{
-    line-height: 10%;
-    vertical-align: center;
-}
-
-
 .img {
     width: 100%;
-    height: 90%;
+    height: 100%;
     left: 0;
     top: 0;
     z-index: 0;
@@ -35,36 +29,66 @@
 }
 
 .movieInfo{
+    box-sizing: border-box;
+    padding: 20px;
     width: 100%;
     height: 10%;
     background: rgba(35,36,42,0.8);
     z-index: 10;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
+    text-align: start;
+    align-items: start;
     color: white;
     transition: 0.3s;
 
 }
-
-.movieInfo:hover{
-    cursor: pointer;
-    position: absolute;
-    width: 101%;
-    height: 101%;
-    transform: translateY(-316px);
+.movieInfo div{
+    padding-bottom: 10px;
+}
+.title{
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+    display: block;
 }
 
-.rating{
+.descript{
+    font-size: 14px;
+    font-style: italic;
+    color: rgba(255,255,255,0.7);
+    width: 50%;
+
+}
+.genres{
     display: flex;
-    justify-content: start;
-    gap: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 110%;
+}
+
+
+.rating{
+    box-sizing: border-box;
+    vertical-align: center;
+    border-radius: 10px;
+    padding: 5px 5px 0;
+    height: 30px;
+    background: rgba(255,255,255,1);
 
 }
 
 .card:hover{
     transform: scale(110%);
     cursor: pointer;
+}
+.card:hover .movieInfo{
+    cursor: pointer;
+    position: absolute;
+    width: 101%;
+    height: 101%;
+    transform: translateY(-316px);
 }
 

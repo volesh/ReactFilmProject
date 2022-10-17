@@ -4,6 +4,7 @@ import {moviesService} from "../../services";
 
 const initialState = {
     movies:[],
+    currentMovie:null,
     search:'',
     pages:0,
     currentPage:1,
@@ -61,6 +62,10 @@ const moviesSlice = createSlice({
         },
         setCurrentPage:(state, action)=>{
             state.currentPage = action.payload
+        },
+        setCurrentMovie:(state, action)=>{
+            state.currentMovie = action.payload
+            console.log(state.currentMovie);
         }
     },
     extraReducers:builder =>
@@ -79,14 +84,15 @@ const moviesSlice = createSlice({
             })
 })
 
-const {reducer:movieReducer, actions:{setSearch, setCurrentPage}} = moviesSlice
+const {reducer:movieReducer, actions:{setSearch, setCurrentPage, setCurrentMovie}} = moviesSlice
 
 const movieActions = {
     getAll,
     getBySearchParams,
     setSearch,
     getWithGenre,
-    setCurrentPage
+    setCurrentPage,
+    setCurrentMovie
 }
 
 export {movieReducer, movieActions}

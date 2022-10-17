@@ -3,10 +3,11 @@ import {useEffect} from "react";
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
-import {movieActions} from "../../redux";
+import {genresActions, movieActions} from "../../redux";
 import {MovieCard} from "../movieCard/MovieCard";
 import css from './movies.module.css'
 import {Genre} from "../genre/Genre";
+import {useSearchParams} from "react-router-dom";
 
 
 const Movies = () => {
@@ -14,13 +15,13 @@ const Movies = () => {
     const {selectedGenre} = useSelector(state => state.genresReducer)
     const dispatch = useDispatch()
 
-
     useEffect(()=>{
-        if (search === '' || !search){
+        if ((search === '' || !search) && ! selectedGenre){
             dispatch(movieActions.getAll({currentPage}))
-        }if(selectedGenre){
+        }if(selectedGenre && (search === '' || !search)){
             dispatch(movieActions.getWithGenre({currentPage, genre:selectedGenre.toString()}))
         } else {
+            dispatch(genresActions.setGenre(null))
             dispatch(movieActions.getBySearchParams({currentPage, search}))
         }
     },[currentPage, search, selectedGenre])

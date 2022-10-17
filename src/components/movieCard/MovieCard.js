@@ -1,30 +1,52 @@
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
+import {useDispatch, useSelector} from "react-redux";
+
 
 import css from './movieCard.module.css'
-
+import {useNavigate} from "react-router-dom";
+import {movieActions} from "../../redux";
 
 const MovieCard = ({movie}) => {
-    const {title,vote_average, poster_path,genre_ids,original_language, release_date, vote_count} = movie
+    const {genres} = useSelector(state => state.genresReducer)
+    const {title,vote_average, poster_path,genre_ids,release_date} = movie
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const createGenre = (id) =>{
+        const genre = genres.find(item => item.id === id)
+        return genre.name
+    }
+
+    const choseFilm = () =>{
+        dispatch(movieActions.setCurrentMovie(movie))
+        navigate('/maine/movie')
+    }
 
     return (
-        <div className={css.card}>
+        <div onClick={choseFilm} className={css.card}>
             <img className={css.img} src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={'Image not found'}/>
             <div>
                 <div className={css.movieInfo}>
-                    <p>INFO</p>
-                    <div>Name - {title}</div>
-                    <div>Original language - {original_language}</div>
-                    <div>Release date - {release_date}</div>
-                    <div>Genres :</div>
+                    <div>
+                        <span className={css.title}>Name</span>
+                        <span className={css.descript}>{title}</span>
+                    </div>
+                    <div>
+                        <span className={css.title}>Release</span>
+                        <span className={css.descript}>{release_date}</span>
+                    </div>
+                    <div>
+                        <span className={css.title}>Genres</span>
+                        <div className={css.genres}>
+                            {genre_ids.map(genre => <span className={css.descript}>{createGenre(genre)}</span>)}
+                        </div>
+                    </div>
                     <div className={css.rating}>
-                        <span>Rating - </span>
                         <Stack spacing={1}>
                             <Rating name="half-rating-read" defaultValue={vote_average / 2} precision={0.5} size={'small'} readOnly />
                         </Stack>
-                        <span>{(vote_average / 2).toFixed(1)}</span>
                     </div>
-                    <div>Vote count - {vote_count}</div>
                 </div>
             </div>
         </div>
