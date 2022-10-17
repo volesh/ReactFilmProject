@@ -1,7 +1,7 @@
 .navigate{
     width: 400px;
     height: 70px;
-    background: #fff;
+    background: grey;
     position: relative;
     display: flex;
     justify-content: center;
@@ -68,10 +68,10 @@
     box-sizing: border-box;
     position: absolute;
     top: -50%;
-    border: 6px solid grey;
+    border: 6px solid #1a1b1f;
     width: 70px;
     height: 70px;
-    background: #45f3ff;
+    background: orangered;
     border-radius: 50%;
     transition: 0.5s;
 }
@@ -84,7 +84,7 @@
     width: 20px;
     height: 20px;
     border-top-right-radius: 20px;
-    box-shadow: 1px -10px 0 0 grey;
+    box-shadow: 1px -10px 0 0 #1a1b1f;
 }
 
 .indicator::after{
@@ -96,7 +96,7 @@
     height: 20px;
     background: transparent;
     border-top-left-radius: 20px;
-    box-shadow: -1px -10px 0 0 grey ;
+    box-shadow: -1px -10px 0 0 #1a1b1f ;
 }
 
 .navigate ul li:nth-child(1).active ~ .indicator{
@@ -111,6 +111,3 @@
 .navigate ul li:nth-child(4).active ~ .indicator{
     transform: translateX(calc(70px * 3));
 }
-/*.navigate ul li:nth-child(5).active ~ .indicator{*/
-/*    transform: translateX(calc(70px * 4));*/
-/*}*/

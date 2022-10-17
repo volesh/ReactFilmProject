@@ -8,7 +8,7 @@
     width: 100%;
     height: 110px;
     padding: 20px 0 0;
-    background: grey;
+    background: #1a1b1f;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -19,7 +19,7 @@
     font-family: 'Inspiration', cursive;
     font-size: 64px;
     font-weight: 500;
-    color: #45f3ff;
+    color: orangered;
 
 }
 .input{
@@ -47,6 +47,7 @@
     top: 15px;
     cursor: pointer;
     z-index: 10;
+    color: orangered;
 
 }
 
@@ -56,7 +57,7 @@
 .userDiv{
     width: 80px;
     height: 40px;
-    background: aqua;
+    background: orangered;
 }
 
 
@@ -85,7 +86,7 @@
     top: 0;
     padding: 20px 10px 10px;
     font-size: 1em;
-    color: #494949;
+    color: #ea9070;
     pointer-events: none;
     letter-spacing: 0.05em;
     transition: 0.5s;
@@ -93,9 +94,14 @@
 
 .inputBlock input:valid ~ span,
 .inputBlock input:focus ~ span{
-    color: #45f3ff;
+    color: orangered;
     transform: translateX(-8px) translateY(-34px);
     font-size: 0.75em;
+}
+
+.inputBlock input:valid ~ .searchIcon,
+.inputBlock input:focus ~ .searchIcon{
+    color: #1a1b1f;
 }
 
 .inputBlock i{
@@ -104,7 +110,7 @@
     bottom: 0;
     width: 100%;
     height: 3px;
-    background: #45f3ff;
+    background: orangered;
     border-radius: 4px;
     transition: 0.5s;
     pointer-events: none;

@@ -1,6 +1,6 @@
 .wrap{
     padding: 50px;
-    background: #45f3ff;
+    background: #23242a;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -12,16 +12,16 @@
 
 .moviesDiv{
     box-sizing: border-box;
-    width: 90%;
+    width: 100%;
     padding: 40px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     text-align: center;
-    gap: 30px;
+    gap: 50px;
     margin-top: 50px;
 
 }
+
 
 
 

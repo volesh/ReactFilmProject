@@ -18,7 +18,9 @@ const Genre = () => {
 
     const setGenre = (id) => {
         dispatch(genresActions.setGenre(id))
-        // dispatch(movieActions.)
+        if(id !== selectedGenre){
+            dispatch(movieActions.setCurrentPage(1))
+        }
     }
 
 
