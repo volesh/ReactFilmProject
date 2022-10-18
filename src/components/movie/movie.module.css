@@ -57,6 +57,10 @@
     text-decoration: underline;
 }
 
+.title:hover{
+    color: orangered;
+}
+
 .buttonsDiv{
     margin: 20px;
     display: flex;
@@ -142,7 +146,8 @@
 }
 
 .reting{
-    display: inline-block;
+    position: relative;
+    width: 100px;
     border: 1px solid black;
     background: rgba(255,255,255,0.4);
     padding: 1px;
@@ -151,9 +156,12 @@
 .retingDiv p{
     display: inline;
     padding: 10px;
+    position: absolute;
+    right: -40px;
+    top: -17px;
 }
 
-/*.retingDiv{*/
-/*    margin-bottom: 15px;*/
-/*    display: inline;*/
-/*}*/
+.retingDiv{
+    margin-bottom: 15px;
+    display: inline;
+}

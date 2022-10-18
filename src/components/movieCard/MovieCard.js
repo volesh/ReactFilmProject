@@ -18,6 +18,9 @@ const MovieCard = ({movie}) => {
     }
 
     const choseFilm = (id) =>{
+        window.scrollTo({
+            top:0
+        })
         navigate(`/maine/movie/${id}`)
     }
 
