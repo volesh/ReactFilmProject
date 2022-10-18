@@ -42,7 +42,7 @@ const MovieCard = ({movie}) => {
                     </div>
                     <div className={css.rating}>
                         <Stack spacing={1}>
-                            <Rating name="half-rating-read" defaultValue={vote_average / 2} precision={0.5} size={'small'} readOnly />
+                            <Rating name="half-rating-read"  defaultValue={vote_average / 2} precision={0.5} size={'small'} readOnly />
                         </Stack>
                     </div>
                 </div>

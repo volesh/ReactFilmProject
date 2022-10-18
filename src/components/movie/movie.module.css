@@ -3,7 +3,7 @@
     flex: 1 1 auto;
     width: 60%;
     position: relative;
-    background: grey;
+    background: #1a1b1f ;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -90,5 +90,70 @@
 }
 
 .allInformation{
-    height: 400px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
+.overview{
+    width: 100%;
+    background: #23242a;
+    color: white;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.allInformation{
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.allInformation h3{
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+}
+
+
+.allInformation p {
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+
+}
+.allInformation i{
+    width: 100%;
+    height: 2px;
+    background: orangered;
+}
+
+.genresDiv{
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 15px;
+}
+
+.reting{
+    display: inline-block;
+    border: 1px solid black;
+    background: rgba(255,255,255,0.4);
+    padding: 1px;
+    border-radius: 5px;
+}
+.retingDiv p{
+    display: inline;
+    padding: 10px;
+}
+
+/*.retingDiv{*/
+/*    margin-bottom: 15px;*/
+/*    display: inline;*/
+/*}*/
