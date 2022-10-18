@@ -90,7 +90,6 @@ const moviesSlice = createSlice({
             })
             .addCase(setCurrentMovieById.fulfilled, (state, action)=>{
                 state.selectedMovie = action.payload
-                console.log(state.selectedMovie);
             })
 })
 

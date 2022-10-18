@@ -18,7 +18,6 @@ const getGenres = createAsyncThunk(
             const {data} = await genresService.getGenres()
             return data
         }catch (e) {
-            console.log('eror');
             return rejectWithValue(e.response.data)
         }
     }
@@ -31,9 +30,7 @@ const genresSlice = createSlice({
     initialState,
     reducers:{
         setGenre:(state, action)=>{
-            console.log(action.payload);
             state.selectedGenre = action.payload
-            console.log(state.selectedGenre);
 
         }
     },

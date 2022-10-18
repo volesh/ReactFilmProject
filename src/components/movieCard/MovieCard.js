@@ -37,7 +37,7 @@ const MovieCard = ({movie}) => {
                     <div>
                         <span className={css.title}>Genres</span>
                         <div className={css.genres}>
-                            {genre_ids.map(genre => <span className={css.descript}>{createGenre(genre)}</span>)}
+                            {genre_ids.map(genre => <span key={genre.id} className={css.descript}>{createGenre(genre)}</span>)}
                         </div>
                     </div>
                     <div className={css.rating}>

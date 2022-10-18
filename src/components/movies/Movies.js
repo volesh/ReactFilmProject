@@ -36,7 +36,7 @@ const Movies = () => {
             <div className={css.moviesDiv}>
                 {movies.map(movie => <MovieCard key={movie.id} movie={movie}/>)}
             </div>
-            <div>
+            <div className={css.paginationDiv}>
                 <Stack spacing={2}>
                     <Pagination
                         page={currentPage}
