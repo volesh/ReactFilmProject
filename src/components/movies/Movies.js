@@ -7,7 +7,7 @@ import {genresActions, movieActions} from "../../redux";
 import {MovieCard} from "../movieCard/MovieCard";
 import css from './movies.module.css'
 import {Genre} from "../genre/Genre";
-import {useSearchParams} from "react-router-dom";
+
 
 
 const Movies = () => {

@@ -47,7 +47,7 @@ const usersFilmsSlice = createSlice({
             }
             state.watched = usersFilmsService.getWatchedFilms()
             state.watchedIds = usersFilmsService.getWatchedFilmsIds()
-        },
+        }
     },
     extraReducers:{}
 })

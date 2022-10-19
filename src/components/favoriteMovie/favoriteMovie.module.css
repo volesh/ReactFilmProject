@@ -1,0 +1,31 @@
+.card{
+    width: 90%;
+    display: flex;
+    gap: 20px;
+    border-bottom: 2px solid orangered;
+    margin-bottom: 20px;
+    padding: 10px   ;
+}
+
+.card img{
+    width: 200px;
+}
+
+.infoBlock{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card h3{
+    font-style: italic;
+    color: snow;
+    font-size: 24px;
+}
+
+.card p{
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+}
