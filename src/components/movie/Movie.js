@@ -101,7 +101,7 @@ const Movie = () => {
                         <div>
                             <h3>Genres</h3>
                             <div className={css.genresDiv}>{selectedMovie.genres.map(genre =>
-                                <span>{genre.name}</span>)}</div>
+                                <span key={genre.id}>{genre.name}</span>)}</div>
                         </div>
                         <i></i>
 

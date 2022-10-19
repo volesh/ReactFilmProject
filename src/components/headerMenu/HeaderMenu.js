@@ -2,17 +2,13 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faFilm, faHeart, faEye} from '@fortawesome/free-solid-svg-icons'
 
 import css from './headerMenu.module.css'
-import {useState} from "react";
 import {useLocation, useNavigate} from "react-router-dom";
 
 const HeaderMenu = () => {
     const navigate = useNavigate()
-    const [child, setChild] = useState(1)
     const location = useLocation()
 
-    console.log(location);
     const active = (n) =>{
-        setChild(n)
         switch (n) {
             case 1:
                 window.scrollTo({
