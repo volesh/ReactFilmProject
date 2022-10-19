@@ -11,7 +11,10 @@ const HeaderMenu = () => {
 
     const active = (n) =>{
         setChild(n)
-        navigate('/maine/films')
+        switch (n) {
+            case 1:
+                navigate('/maine/films')
+        }
 
     }
 
@@ -26,30 +29,19 @@ const HeaderMenu = () => {
                 </li>
                 <li onClick={()=>active(2)} className={child===2?css.active:undefined}>
                     <a>
-                        <span className={css.icon}><FontAwesomeIcon icon={faUser} /></span>
-                        <span className={css.text}>Profile</span>
-                    </a>
-                </li>
-                <li onClick={()=>active(3)} className={child===3?css.active:undefined}>
-                    <a>
                         <span className={css.icon}><FontAwesomeIcon icon={faHeart} /></span>
                         <span className={css.text}>Favorite</span>
                     </a>
                 </li>
-                <li onClick={()=>active(4)} className={child===4?css.active:undefined}>
+                <li onClick={()=>active(3)} className={child===3?css.active:undefined}>
                     <a>
                         <span className={css.icon}><FontAwesomeIcon icon={faEye} /></span>
                         <span className={css.text}>Viewed</span>
                     </a>
                 </li>
-                {/*<li onClick={()=>active(5)} className={child===5&&css.active}>*/}
-                {/*    <a>*/}
-                {/*        <span className={css.icon}><FontAwesomeIcon icon={faGear} /></span>*/}
-                {/*        <span className={css.text}>Settings</span>*/}
-                {/*    </a>*/}
-                {/*</li>*/}
                 <div className={css.indicator}></div>
             </ul>
+            <div></div>
         </div>
     );
 };

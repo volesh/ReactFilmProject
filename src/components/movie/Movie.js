@@ -3,8 +3,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEye, faHeart} from '@fortawesome/free-solid-svg-icons'
+import Snackbar from '@mui/material/Snackbar';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
-import {movieActions} from "../../redux";
+import {movieActions, usersFilmsActions} from "../../redux";
 import css from './movie.module.css'
 import Stack from "@mui/material/Stack";
 import Rating from "@mui/material/Rating";
@@ -13,12 +16,47 @@ import Rating from "@mui/material/Rating";
 
 const Movie = () => {
     const {selectedMovie} = useSelector(state => state.movieReducer)
+    const {favoriteIds, watchedIds} = useSelector(state => state.usersFilmsReducer)
     const dispatch = useDispatch()
     const {id} = useParams()
+    const [open, setOpen] = React.useState(false);
 
     useEffect(()=>{
         dispatch(movieActions.setCurrentMovieById({id}))
     },[selectedMovie])
+
+    const addToFavorite = (film) =>{
+        dispatch(usersFilmsActions.addFavoriteFilm(film))
+    }
+
+    const addToWatched = (film) =>{
+        dispatch(usersFilmsActions.addWatchedFilm(film))
+    }
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
+
+    const action = (
+        <React.Fragment>
+            <IconButton
+                size="small"
+                aria-label="close"
+                color="inherit"
+                onClick={handleClose}
+            >
+                <CloseIcon fontSize="small" />
+            </IconButton>
+        </React.Fragment>
+    );
 
     return (
         <>
@@ -34,11 +72,19 @@ const Movie = () => {
                                 <div className={css.title}>{selectedMovie.title}</div>
                                 <div className={css.buttonsDiv}>
                                     <div>
-                                        <button><FontAwesomeIcon icon={faHeart}/></button>
+                                        <button onClick={()=>{
+                                            addToFavorite(selectedMovie)
+                                            handleClick()
+                                        }
+                                        }><FontAwesomeIcon className={favoriteIds.includes(selectedMovie.id)?css.chosed:''} icon={faHeart}/></button>
                                         <p>Favorite</p>
                                     </div>
                                     <div>
-                                        <button><FontAwesomeIcon icon={faEye}/></button>
+                                        <button onClick={()=>{
+                                            addToWatched(selectedMovie)
+                                            handleClick()
+                                        }
+                                        }><FontAwesomeIcon className={watchedIds.includes(selectedMovie.id)?css.chosed:''} icon={faEye}/></button>
                                         <p>Reviewed</p>
                                     </div>
                                 </div>
@@ -79,7 +125,7 @@ const Movie = () => {
                         <i></i>
 
                         <div className={css.retingDiv}>
-                            <h3>Reting</h3>
+                            <h3>Rating</h3>
                             <Stack className={css.reting} spacing={1}>
                                 <Rating name="half-rating-read" defaultValue={selectedMovie.vote_average / 2}
                                         precision={0.5} size={'small'} readOnly/>
@@ -88,6 +134,13 @@ const Movie = () => {
                         </div>
                         <i></i>
                     </div>
+                    <Snackbar
+                        open={open}
+                        autoHideDuration={6000}
+                        onClose={handleClose}
+                        message='Success'
+                        action={action}
+                    />
                 </div>}
 
         </>

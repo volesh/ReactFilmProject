@@ -6,12 +6,14 @@ import {faXmark, faSearch} from '@fortawesome/free-solid-svg-icons'
 import css from './header.module.css'
 import {movieActions} from "../../redux";
 import {HeaderMenu} from "../headerMenu/HeaderMenu";
+import {useNavigate} from "react-router-dom";
 
 
 
 const Header = () => {
     const [inputValue, setInputValue] = useState('')
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
 
     const changeValue = (value) => {
@@ -22,7 +24,7 @@ const Header = () => {
     return (
         <div className={css.wrap}>
             <header className={css.header}>
-                <div className={css.logo}>Vasyl Olesh</div>
+                <div onClick={()=>navigate('/maine/films')} className={css.logo}>Vasyl Olesh</div>
                 <HeaderMenu/>
                 <div className={css.inputBlock} >
                     <input type="text" required="required" value={inputValue} onChange={(elem)=>changeValue(elem.target.value)}/>

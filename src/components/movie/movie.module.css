@@ -57,9 +57,6 @@
     text-decoration: underline;
 }
 
-.title:hover{
-    color: orangered;
-}
 
 .buttonsDiv{
     margin: 20px;
@@ -164,4 +161,8 @@
 .retingDiv{
     margin-bottom: 15px;
     display: inline;
+}
+
+.chosed{
+    color: orangered;
 }
