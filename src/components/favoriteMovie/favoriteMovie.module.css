@@ -13,6 +13,7 @@
 
 .infoBlock{
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column;
     justify-content: space-around;
 }
@@ -29,3 +30,24 @@
     font-style: italic;
     color: rgba(255,255,255,0.6);
 }
+
+.btnDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.btnDiv button{
+    width: 150px;
+    padding:10px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    cursor: pointer;
+}
+
+.btnDiv button:active{
+    transform: translateY(-2px);
+}
+

@@ -15,13 +15,23 @@ const HeaderMenu = () => {
         setChild(n)
         switch (n) {
             case 1:
+                window.scrollTo({
+                    top:0
+                })
                 navigate('/maine/films')
                 break
             case 2:
+                window.scrollTo({
+                    top:0
+                })
                 navigate('/maine/favorite')
                 break
             case 3:
+                window.scrollTo({
+                    top:0
+                })
                 navigate('/maine/watched')
+                break
         }
 
     }
