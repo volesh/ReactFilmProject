@@ -1,19 +1,14 @@
-import React from "react";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 
 import css from './favoriteMovie.module.css'
-import {usersFilmsActions} from "../../redux";
-import {useDispatch} from "react-redux";
 
 
-const FavoriteMovie = ({movie}) => {
+
+
+const FavoriteMovie = ({movie,setActivePopup, setMovieForRemove}) => {
     const {poster_path,title, overview, vote_average} = movie
-    const dispatch = useDispatch()
 
-    const addToFavorite = (film) =>{
-        dispatch(usersFilmsActions.addFavoriteFilm(film))
-    }
 
     return (
         <div className={css.card}>
@@ -22,12 +17,13 @@ const FavoriteMovie = ({movie}) => {
                 <h3>{title}</h3>
                 <p>{overview}</p>
                 <Stack spacing={1}>
-                    <Rating name="half-rating-read"  defaultValue={vote_average / 2} precision={0.5} size={'small'} readOnly />
+                    <Rating name="half-rating-read"  defaultValue={vote_average / 2} precision={0.5} readOnly />
                 </Stack>
             </div>
             <div className={css.btnDiv}>
                 <button onClick={()=>{
-                    addToFavorite(movie)
+                    setMovieForRemove(movie)
+                    setActivePopup(true)
                 }}>Remove from favorite</button>
             </div>
         </div>

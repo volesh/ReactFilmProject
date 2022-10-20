@@ -1,4 +1,4 @@
-import {Movies} from "../../components";
+import {ConfirmPopup, Movies} from "../../components";
 
 
 

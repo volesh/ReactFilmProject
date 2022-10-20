@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -11,12 +11,14 @@ import {movieActions, usersFilmsActions} from "../../redux";
 import css from './movie.module.css'
 import Stack from "@mui/material/Stack";
 import Rating from "@mui/material/Rating";
+import {RatingPopup} from "../ratingPopup/RatingPopup";
 
 
 
 const Movie = () => {
     const {selectedMovie} = useSelector(state => state.movieReducer)
     const {favoriteIds, watchedIds} = useSelector(state => state.usersFilmsReducer)
+    const [active, setActive] = useState(false)
     const dispatch = useDispatch()
     const {id} = useParams()
     const [open, setOpen] = React.useState(false);
@@ -30,7 +32,12 @@ const Movie = () => {
     }
 
     const addToWatched = (film) =>{
-        dispatch(usersFilmsActions.addWatchedFilm(film))
+        if(watchedIds.includes(film.id)){
+            console.log(true);
+            dispatch(usersFilmsActions.addWatchedFilm(film))
+        }else {
+            setActive(true)
+        }
     }
 
     const handleClick = () => {
@@ -62,6 +69,7 @@ const Movie = () => {
         <>
             {(selectedMovie && selectedMovie.id==id) &&
                 <div className={css.block}>
+                    {active&&<RatingPopup dispatch={dispatch} film={selectedMovie} setActive={setActive}/>}
                     <div className={css.backDrop}>
                         <img src={`https://image.tmdb.org/t/p/w500${selectedMovie.backdrop_path}`} alt={selectedMovie.title}/>
                         <div className={css.posterBlock}>

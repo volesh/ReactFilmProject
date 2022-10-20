@@ -1,0 +1,55 @@
+.modal{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 8;
+}
+
+.modalContent{
+    padding: 10px 40px 40px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    background: grey;
+}
+.modalContent h3{
+    font-size: 26px;
+    color: white;
+    font-style: italic;
+    text-shadow: 1px 1px #1a1b1f;
+}
+
+.buttonsDiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.buttonsDiv button{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background: #23242a;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.buttonsDiv button:hover{
+    box-shadow: 2px 2px orangered;
+}
+
+.buttonsDiv button:active{
+    box-shadow: none;
+    transform: translateY(2px);
+
+}
