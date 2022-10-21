@@ -31,8 +31,6 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     border-bottom: 2px solid;
-    /*border: 1px solid;*/
-    /*border-radius: 10px;*/
     padding: 10px;
     font-size: 18px;
     font-weight: 500;
@@ -55,12 +53,23 @@
 .searchIcon:hover{
     cursor: pointer;
 }
-.userDiv{
-    width: 80px;
-    height: 40px;
-    background: orangered;
+.userDiv {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 8%;
 }
 
+.userIcon{
+    color: grey;
+    font-size: 40px;
+}
+
+.userDiv p{
+    font-size: 16px;
+    color: grey;
+    cursor: pointer;
+}
 
 
 .inputBlock{

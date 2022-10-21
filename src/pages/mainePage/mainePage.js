@@ -1,10 +1,11 @@
-import {ConfirmPopup, Movies} from "../../components";
+import {Movies, UserNamePopup} from "../../components";
+import css from '../favoritePage/favoritePage.module.css'
 
 
 
 const MainePage = () => {
     return (
-            <div>
+            <div className={css.wrap}>
             <Movies/>
         </div>
     );

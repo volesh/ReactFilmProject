@@ -13,6 +13,7 @@ const initialState = {
     watched:a(JSON.parse(localStorage.getItem('watched'))),
     favoriteIds: a(JSON.parse(localStorage.getItem('favoriteIds'))),
     watchedIds:a(JSON.parse(localStorage.getItem('watchedIds'))),
+    userName:'Vasyl',
     error:null,
     isLoading:false
 }
@@ -47,16 +48,20 @@ const usersFilmsSlice = createSlice({
             }
             state.watched = usersFilmsService.getWatchedFilms()
             state.watchedIds = usersFilmsService.getWatchedFilmsIds()
+        },
+        setUserName:(state, action)=>{
+            state.userName = action.payload
         }
     },
     extraReducers:{}
 })
 
-const {reducer:usersFilmsReducer, actions:{addFavoriteFilm, addWatchedFilm}} = usersFilmsSlice
+const {reducer:usersFilmsReducer, actions:{addFavoriteFilm, addWatchedFilm, setUserName}} = usersFilmsSlice
 
 const usersFilmsActions = {
     addWatchedFilm,
-    addFavoriteFilm
+    addFavoriteFilm,
+    setUserName
 }
 
 export {usersFilmsActions,usersFilmsReducer}

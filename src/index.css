@@ -22,3 +22,12 @@ code {
   display: flex;
   flex-direction: column;
 }
+
+
+/*dark theme*/
+
+html[data-theme='dark']{
+  --baclground-color:#000;
+
+
+}

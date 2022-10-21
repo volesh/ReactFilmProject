@@ -19,6 +19,12 @@ const usersFilmsService = {
     },
     getWatchedFilmsIds:()=> {
         return JSON.parse(localStorage.getItem('watchedIds'))
+    },
+    getUserName:()=>{
+        return JSON.parse(localStorage.getItem('userName'))
+    },
+    setUserName:(name)=>{
+        localStorage.setItem('userName', JSON.stringify(name))
     }
 }
 

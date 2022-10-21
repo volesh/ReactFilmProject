@@ -1,17 +1,18 @@
 import {useState} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faXmark, faSearch} from '@fortawesome/free-solid-svg-icons'
+import {faXmark, faSearch, faCircleUser} from '@fortawesome/free-solid-svg-icons'
 
 import css from './header.module.css'
-import {movieActions} from "../../redux";
+import {movieActions, usersFilmsReducer} from "../../redux";
 import {HeaderMenu} from "../headerMenu/HeaderMenu";
 import {useNavigate} from "react-router-dom";
 
 
 
-const Header = () => {
+const Header = ({setActivePopup}) => {
     const [inputValue, setInputValue] = useState('')
+    const {userName} = useSelector(state => state.usersFilmsReducer)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -20,6 +21,8 @@ const Header = () => {
         setInputValue(value)
         dispatch(movieActions.setSearch(value))
     }
+
+
 
     return (
         <div className={css.wrap}>
@@ -32,7 +35,10 @@ const Header = () => {
                     <div className={css.searchIcon}>{inputValue?<FontAwesomeIcon onClick={()=>changeValue('')} icon={faXmark} />:<FontAwesomeIcon icon={faSearch} />}</div>
                     <i></i>
                 </div>
-                <div className={css.userDiv}>user</div>
+                <div className={css.userDiv}>
+                    <FontAwesomeIcon className={css.userIcon} icon={faCircleUser} />
+                    {userName?<p onClick={()=>setActivePopup(true)}>{userName}</p>:<p>User</p>}
+                </div>
             </header>
         </div>
     );
