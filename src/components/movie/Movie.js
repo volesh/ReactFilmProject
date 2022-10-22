@@ -3,9 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEye, faHeart} from '@fortawesome/free-solid-svg-icons'
-import Snackbar from '@mui/material/Snackbar';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+
 
 import {movieActions, usersFilmsActions} from "../../redux";
 import css from './movie.module.css'
@@ -40,31 +38,6 @@ const Movie = () => {
         }
     }
 
-    const handleClick = () => {
-        setOpen(true);
-    };
-
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setOpen(false);
-    };
-
-    const action = (
-        <React.Fragment>
-            <IconButton
-                size="small"
-                aria-label="close"
-                color="inherit"
-                onClick={handleClose}
-            >
-                <CloseIcon fontSize="small" />
-            </IconButton>
-        </React.Fragment>
-    );
-
     return (
         <>
             {(selectedMovie && selectedMovie.id==id) &&
@@ -82,7 +55,7 @@ const Movie = () => {
                                     <div>
                                         <button onClick={()=>{
                                             addToFavorite(selectedMovie)
-                                            handleClick()
+                                            // handleClick()
                                         }
                                         }><FontAwesomeIcon className={favoriteIds.includes(selectedMovie.id)?css.chosed:''} icon={faHeart}/></button>
                                         <p>Favorite</p>
@@ -90,7 +63,7 @@ const Movie = () => {
                                     <div>
                                         <button onClick={()=>{
                                             addToWatched(selectedMovie)
-                                            handleClick()
+                                            // handleClick()
                                         }
                                         }><FontAwesomeIcon className={watchedIds.includes(selectedMovie.id)?css.chosed:''} icon={faEye}/></button>
                                         <p>Reviewed</p>
@@ -142,15 +115,7 @@ const Movie = () => {
                         </div>
                         <i></i>
                     </div>
-                    <Snackbar
-                        open={open}
-                        autoHideDuration={6000}
-                        onClose={handleClose}
-                        message='Success'
-                        action={action}
-                    />
                 </div>}
-
         </>
     );
 };

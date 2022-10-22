@@ -134,4 +134,13 @@
 
 }
 
+@media (max-width: 1000px) {
+    .logo{
+        font-size: 30px;
+    }
+    .inputBlock{
+        width: 130px;
+    }
+}
+
 

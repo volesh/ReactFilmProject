@@ -10,6 +10,7 @@
 .backDrop{
     overflow: hidden;
     width: 100%;
+    position: relative;
 
 }
 .backDrop img{
@@ -34,8 +35,9 @@
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-    left: 3%;
-    top: 25%;
+    height: 200px;
+    left: 5%;
+    bottom: 5%;
 
 }
 
@@ -166,4 +168,32 @@
 
 .chosed{
     color: var(--maine-color);
+}
+
+
+@media (max-width: 1000px){
+    .posterBlock img{
+        display: none;
+        width: 0;
+        height: 0;
+    }
+    .infoBlock{
+        width: 100%;
+    }
+    .posterBlock{
+        height: 150px;
+        left: -100px;
+        bottom: -20px;
+    }
+    .title{
+        font-size: 20px;
+    }
+    .buttonsDiv button{
+        height: 30px;
+        width: 50px;
+    }
+    .buttonsDiv p {
+        font-size: 12px;
+        width: 50px;
+    }
 }

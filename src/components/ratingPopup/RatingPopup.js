@@ -33,8 +33,8 @@ const RatingPopup = ({film,setActive,dispatch}) => {
     }
 
     return (
-        <div className={css.modal} >
-            <div className={css.modalContent}>
+        <div className={css.modal} onClick={()=>setActive(false)}>
+            <div className={css.modalContent} onClick={e=>e.stopPropagation()}>
                 <h3>Rate the movie</h3>
                 <Box
                     sx={{
