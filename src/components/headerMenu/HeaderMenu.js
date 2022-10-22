@@ -1,12 +1,24 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faFilm, faHeart, faEye} from '@fortawesome/free-solid-svg-icons'
+import {faFilm, faHeart, faEye, faSun, faXmark, faMoon} from '@fortawesome/free-solid-svg-icons'
 
 import css from './headerMenu.module.css'
 import {useLocation, useNavigate} from "react-router-dom";
+import {useTheme} from "../../hooks";
 
 const HeaderMenu = () => {
     const navigate = useNavigate()
     const location = useLocation()
+    const {theme, setTheme} = useTheme()
+
+    const changeTheme = () =>{
+        if (theme === 'dark'){
+            setTheme('light')
+            localStorage.setItem('appTheme', 'light')
+        }else {
+            setTheme('dark')
+            localStorage.setItem('appTheme', 'dark')
+        }
+    }
 
     const active = (n) =>{
         switch (n) {
@@ -60,7 +72,11 @@ const HeaderMenu = () => {
                     <div className={css.indicator}></div>}
 
             </ul>
-            <div></div>
+            <div>
+                <button className={css.switchBtn} onClick={changeTheme}>
+                    <span className={theme === 'dark'?css.btnTogleDark:css.btnTogleLight}>{theme === 'light'?<FontAwesomeIcon icon={faSun} />:<FontAwesomeIcon icon={faMoon} />}</span>
+                </button>
+            </div>
         </div>
     );
 };

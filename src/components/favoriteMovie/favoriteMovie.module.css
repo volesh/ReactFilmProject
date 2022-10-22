@@ -2,7 +2,7 @@
     width: 90%;
     display: flex;
     gap: 20px;
-    border-bottom: 2px solid orangered;
+    border-bottom: 2px solid var(--maine-color);
     margin-bottom: 20px;
     padding: 10px   ;
 }
@@ -19,7 +19,7 @@
 }
 
 .infoBlock h4{
-    color: snow;
+    color: var(--maine-text-color);
     font-size: 16px;
     font-style: italic;
     margin-bottom: 0;
@@ -27,7 +27,7 @@
 
 .card h3{
     font-style: italic;
-    color: snow;
+    color: var(--maine-text-color);
     font-size: 24px;
 }
 
@@ -35,7 +35,7 @@
     font-size: 14px;
     font-weight: 500;
     font-style: italic;
-    color: rgba(255,255,255,0.6);
+    color: var(--maine-text-color);
 }
 
 .btnDiv{
@@ -50,7 +50,7 @@
     border-radius: 20px;
     font-size: 18px;
     font-weight: 500;
-    color: rgba(255,255,255,0.6);
+    color: var(--maine-text-color);
     cursor: pointer;
 }
 

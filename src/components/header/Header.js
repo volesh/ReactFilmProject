@@ -4,10 +4,9 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faXmark, faSearch, faCircleUser} from '@fortawesome/free-solid-svg-icons'
 
 import css from './header.module.css'
-import {movieActions, usersFilmsReducer} from "../../redux";
+import {movieActions} from "../../redux";
 import {HeaderMenu} from "../headerMenu/HeaderMenu";
 import {useNavigate} from "react-router-dom";
-
 
 
 const Header = ({setActivePopup}) => {
