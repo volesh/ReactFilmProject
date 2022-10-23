@@ -77,19 +77,35 @@ const moviesSlice = createSlice({
     extraReducers:builder =>
         builder
             .addCase(getAll.fulfilled, (state, action)=>{
+                state.isLoading = false
                 state.pages = action.payload.total_pages
                 state.movies = action.payload.results
+            })
+            .addCase(getAll.pending, (state, action)=>{
+                state.isLoading = true
             })
             .addCase(getBySearchParams.fulfilled, (state, action)=>{
+                state.isLoading = false
                 state.pages = action.payload.total_pages
                 state.movies = action.payload.results
+            })
+            .addCase(getBySearchParams.pending, (state, action)=>{
+                state.isLoading = true
             })
             .addCase(getWithGenre.fulfilled, (state, action)=>{
+                state.isLoading = false
                 state.pages = action.payload.total_pages
                 state.movies = action.payload.results
             })
+            .addCase(getWithGenre.pending, (state, action)=>{
+                state.isLoading = true
+            })
             .addCase(setCurrentMovieById.fulfilled, (state, action)=>{
+                state.isLoading = false
                 state.selectedMovie = action.payload
+            })
+            .addCase(setCurrentMovieById.pending, (state, action)=>{
+                state.isLoading = true
             })
 })
 

@@ -1,4 +1,3 @@
-
 const settings = {
     dots: true,
     infinite: true,

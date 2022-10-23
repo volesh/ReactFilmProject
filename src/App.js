@@ -2,12 +2,10 @@ import {Navigate, Route, Routes} from "react-router-dom";
 
 import {MaineLayout} from "./layouts/maineLayout";
 import {MainePage, FilmInfoPage, FavoritePage, WatchedPage} from "./pages";
-import {useTheme} from "./hooks";
 
 
 function App() {
 
-    // const {theme, setTheme} = useTheme()
 
   return (
     <Routes>

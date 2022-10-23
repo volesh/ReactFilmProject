@@ -3,12 +3,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEye, faHeart} from '@fortawesome/free-solid-svg-icons'
+import Stack from "@mui/material/Stack";
+import Rating from "@mui/material/Rating";
 
 
 import {movieActions, usersFilmsActions} from "../../redux";
 import css from './movie.module.css'
-import Stack from "@mui/material/Stack";
-import Rating from "@mui/material/Rating";
 import {RatingPopup} from "../ratingPopup/RatingPopup";
 
 
@@ -19,7 +19,6 @@ const Movie = () => {
     const [active, setActive] = useState(false)
     const dispatch = useDispatch()
     const {id} = useParams()
-    const [open, setOpen] = React.useState(false);
 
     useEffect(()=>{
         dispatch(movieActions.setCurrentMovieById({id}))
@@ -40,6 +39,7 @@ const Movie = () => {
 
     return (
         <>
+
             {(selectedMovie && selectedMovie.id==id) &&
                 <div className={css.block}>
                     {active&&<RatingPopup dispatch={dispatch} film={selectedMovie} setActive={setActive}/>}

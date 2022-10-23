@@ -1,7 +1,8 @@
-import css from './userNamePopup.module.css'
 import {useDispatch} from "react-redux";
 import {useForm} from "react-hook-form";
+
 import {usersFilmsActions} from "../../redux";
+import css from './userNamePopup.module.css'
 
 const UserNamePopup = ({setActivePopup}) => {
     const dispatch = useDispatch()

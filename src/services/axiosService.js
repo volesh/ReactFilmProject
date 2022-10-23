@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import {_accessToken} from "../configs/tocens";
+import {_accessToken} from "../configs/tokens";
 import {baseURL} from "../configs";
 
 

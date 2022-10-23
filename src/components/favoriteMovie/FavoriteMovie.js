@@ -4,8 +4,6 @@ import Stack from "@mui/material/Stack";
 import css from './favoriteMovie.module.css'
 
 
-
-
 const FavoriteMovie = ({movie,setActivePopup, setMovieForRemove}) => {
     const {poster_path,title, overview, vote_average} = movie
 

@@ -2,6 +2,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Skeleton from '@mui/material/Skeleton';
 
 import {genresActions, movieActions} from "../../redux";
 import {MovieCard} from "../movieCard/MovieCard";
@@ -10,8 +13,10 @@ import {Genre} from "../genre/Genre";
 
 
 
+
+
 const Movies = () => {
-    const {movies, search, pages, currentPage} = useSelector(state => state.movieReducer)
+    const {movies, search, pages, currentPage, isLoading} = useSelector(state => state.movieReducer)
     const {selectedGenre} = useSelector(state => state.genresReducer)
     const dispatch = useDispatch()
 
@@ -31,8 +36,16 @@ const Movies = () => {
     }
 
     return (
+
         <div className={css.wrap}>
             <Genre/>
+            {isLoading &&
+                <Box sx={{width: '100%', height: '700px'}}>
+                    <Skeleton width="100%" height="700px">
+                        <Typography>.</Typography>
+                    </Skeleton>
+                </Box>
+            }
             <div className={css.moviesDiv}>
                 {movies.map(movie => <MovieCard key={movie.id} movie={movie}/>)}
             </div>

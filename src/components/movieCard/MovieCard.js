@@ -1,6 +1,6 @@
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 
 
 import css from './movieCard.module.css'

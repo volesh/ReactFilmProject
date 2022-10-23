@@ -1,12 +1,13 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {useNavigate} from "react-router-dom";
 import {faXmark, faSearch, faCircleUser} from '@fortawesome/free-solid-svg-icons'
 
 import css from './header.module.css'
 import {movieActions} from "../../redux";
 import {HeaderMenu} from "../headerMenu/HeaderMenu";
-import {useNavigate} from "react-router-dom";
+
 
 
 const Header = ({setActivePopup}) => {

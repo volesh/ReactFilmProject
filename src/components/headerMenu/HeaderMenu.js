@@ -1,8 +1,8 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFilm, faHeart, faEye, faSun, faXmark, faMoon} from '@fortawesome/free-solid-svg-icons'
+import {useLocation, useNavigate} from "react-router-dom";
+import {faFilm, faHeart, faEye, faSun, faMoon} from '@fortawesome/free-solid-svg-icons'
 
 import css from './headerMenu.module.css'
-import {useLocation, useNavigate} from "react-router-dom";
 import {useTheme} from "../../hooks";
 
 const HeaderMenu = () => {
