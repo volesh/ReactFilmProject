@@ -35,7 +35,7 @@ const Header = ({setActivePopup}) => {
                 </div>
                 <div className={css.userDiv}>
                     <FontAwesomeIcon className={css.userIcon} icon={faCircleUser} />
-                    {userName?<p onClick={()=>setActivePopup(true)}>{userName}</p>:<p>User</p>}
+                    {userName?<p onClick={()=>setActivePopup(true)}>{userName}</p>:<p onClick={()=>setActivePopup(true)}>User</p>}
                 </div>
             </header>
         </div>
