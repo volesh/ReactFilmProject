@@ -36,6 +36,8 @@ const Movie = () => {
             setActive(true)
         }
     }
+    console.log(error);
+    console.log(selectedMovie);
     return (
         <>
             {error &&
@@ -47,7 +49,7 @@ const Movie = () => {
                 <div className={css.block}>
                     {active&&<RatingPopup dispatch={dispatch} film={selectedMovie} setActive={setActive}/>}
                     <div className={css.backDrop}>
-                        <img src={`https://image.tmdb.org/t/p/w500${selectedMovie.backdrop_path}`} alt={selectedMovie.title}/>
+                        {selectedMovie.backdrop_path?<img src={`https://image.tmdb.org/t/p/w500${selectedMovie.backdrop_path}`} alt={selectedMovie.title}/>:<div className={css.empty}> No photo</div>}
                         <div className={css.posterBlock}>
                             <div className={css.poster}>
                                 <img src={`https://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`} alt={selectedMovie.title}/>
@@ -102,7 +104,7 @@ const Movie = () => {
 
                         <div>
                             <h3>Production country</h3>
-                            <p>{selectedMovie.production_countries[0].name}</p>
+                            <p>{selectedMovie.production_countries[0]?.name}</p>
                         </div>
                         <i></i>
 

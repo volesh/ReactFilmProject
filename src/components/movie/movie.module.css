@@ -179,6 +179,16 @@
     margin-top: 50px;
 }
 
+.empty{
+    width: 100%;
+    height: 500px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
 
 @media (max-width: 1000px){
     .posterBlock img{
