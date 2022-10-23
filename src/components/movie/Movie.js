@@ -14,7 +14,7 @@ import {RatingPopup} from "../ratingPopup/RatingPopup";
 
 
 const Movie = () => {
-    const {selectedMovie} = useSelector(state => state.movieReducer)
+    const {selectedMovie, error} = useSelector(state => state.movieReducer)
     const {favoriteIds, watchedIds} = useSelector(state => state.usersFilmsReducer)
     const [active, setActive] = useState(false)
     const dispatch = useDispatch()
@@ -22,7 +22,7 @@ const Movie = () => {
 
     useEffect(()=>{
         dispatch(movieActions.setCurrentMovieById({id}))
-    },[selectedMovie])
+    },[])
 
     const addToFavorite = (film) =>{
         dispatch(usersFilmsActions.addFavoriteFilm(film))
@@ -36,10 +36,13 @@ const Movie = () => {
             setActive(true)
         }
     }
-
     return (
         <>
-
+            {error &&
+                <div className={css.error}>
+                    Something went wrong
+                </div>
+            }
             {(selectedMovie && selectedMovie.id==id) &&
                 <div className={css.block}>
                     {active&&<RatingPopup dispatch={dispatch} film={selectedMovie} setActive={setActive}/>}
@@ -55,7 +58,6 @@ const Movie = () => {
                                     <div>
                                         <button onClick={()=>{
                                             addToFavorite(selectedMovie)
-                                            // handleClick()
                                         }
                                         }><FontAwesomeIcon className={favoriteIds.includes(selectedMovie.id)?css.chosed:''} icon={faHeart}/></button>
                                         <p>Favorite</p>
@@ -63,7 +65,6 @@ const Movie = () => {
                                     <div>
                                         <button onClick={()=>{
                                             addToWatched(selectedMovie)
-                                            // handleClick()
                                         }
                                         }><FontAwesomeIcon className={watchedIds.includes(selectedMovie.id)?css.chosed:''} icon={faEye}/></button>
                                         <p>Reviewed</p>
@@ -88,8 +89,8 @@ const Movie = () => {
 
                         <div>
                             <h3>Companies</h3>
-                            <div className={css.genresDiv}>{selectedMovie.production_companies.map(company =>
-                                <span>{company.name}</span>)}</div>
+                            <div className={css.genresDiv}>{selectedMovie.production_companies.map((company, index) =>
+                                <span key={index}>{company.name}</span>)}</div>
                         </div>
                         <i></i>
 

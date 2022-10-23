@@ -30,7 +30,13 @@
     padding: 5px;
 }
 
-
+.error{
+    font-size: 40px;
+    color: red;
+    font-weight: 600;
+    padding: 50px;
+    margin-top: 50px;
+}
 
 
 

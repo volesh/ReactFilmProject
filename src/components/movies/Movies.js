@@ -16,16 +16,16 @@ import {Genre} from "../genre/Genre";
 
 
 const Movies = () => {
-    const {movies, search, pages, currentPage, isLoading} = useSelector(state => state.movieReducer)
+    const {movies, search, pages, currentPage, isLoading, error} = useSelector(state => state.movieReducer)
     const {selectedGenre} = useSelector(state => state.genresReducer)
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        if ((search === '' || !search) && ! selectedGenre){
+        if ((search === '' || !search) &&  !selectedGenre){
             dispatch(movieActions.getAll({currentPage}))
-        }if(selectedGenre && (search === '' || !search)){
+        }else if(selectedGenre && (search === '' || !search)){
             dispatch(movieActions.getWithGenre({currentPage, genre:selectedGenre.toString()}))
-        } else {
+        }else {
             dispatch(genresActions.setGenre(null))
             dispatch(movieActions.getBySearchParams({currentPage, search}))
         }
@@ -33,6 +33,9 @@ const Movies = () => {
 
     const setCurrentPage = (page) => {
         dispatch(movieActions.setCurrentPage(page))
+        window.scrollTo({
+            top:0
+        })
     }
 
     return (
@@ -45,6 +48,11 @@ const Movies = () => {
                         <Typography>.</Typography>
                     </Skeleton>
                 </Box>
+            }
+            {error &&
+                <div className={css.error}>
+                    Something went wrong
+                </div>
             }
             <div className={css.moviesDiv}>
                 {movies.map(movie => <MovieCard key={movie.id} movie={movie}/>)}

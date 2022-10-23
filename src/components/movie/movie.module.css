@@ -170,6 +170,15 @@
     color: var(--maine-color);
 }
 
+.error{
+    margin: 0 auto;
+    font-size: 40px;
+    color: red;
+    font-weight: 600;
+    padding: 50px;
+    margin-top: 50px;
+}
+
 
 @media (max-width: 1000px){
     .posterBlock img{

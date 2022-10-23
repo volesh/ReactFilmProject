@@ -78,34 +78,54 @@ const moviesSlice = createSlice({
         builder
             .addCase(getAll.fulfilled, (state, action)=>{
                 state.isLoading = false
+                state.error = null
                 state.pages = action.payload.total_pages
                 state.movies = action.payload.results
             })
             .addCase(getAll.pending, (state, action)=>{
                 state.isLoading = true
             })
+            .addCase(getAll.rejected, (state, action)=>{
+                state.error = action.payload
+                state.isLoading = false
+            })
             .addCase(getBySearchParams.fulfilled, (state, action)=>{
                 state.isLoading = false
+                state.error = null
                 state.pages = action.payload.total_pages
                 state.movies = action.payload.results
             })
             .addCase(getBySearchParams.pending, (state, action)=>{
                 state.isLoading = true
             })
+            .addCase(getBySearchParams.rejected, (state, action)=>{
+                state.error = action.payload
+                state.isLoading = false
+            })
             .addCase(getWithGenre.fulfilled, (state, action)=>{
                 state.isLoading = false
+                state.error = null
                 state.pages = action.payload.total_pages
                 state.movies = action.payload.results
             })
             .addCase(getWithGenre.pending, (state, action)=>{
                 state.isLoading = true
             })
+            .addCase(getWithGenre.rejected, (state, action)=>{
+                state.error = action.payload
+                state.isLoading = false
+            })
             .addCase(setCurrentMovieById.fulfilled, (state, action)=>{
                 state.isLoading = false
+                state.error = null
                 state.selectedMovie = action.payload
             })
             .addCase(setCurrentMovieById.pending, (state, action)=>{
                 state.isLoading = true
+            })
+            .addCase(setCurrentMovieById.rejected, (state, action)=>{
+                state.error = action.payload
+                state.isLoading = false
             })
 })
 
