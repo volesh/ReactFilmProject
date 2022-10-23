@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useNavigate} from "react-router-dom";
@@ -11,14 +10,13 @@ import {HeaderMenu} from "../headerMenu/HeaderMenu";
 
 
 const Header = ({setActivePopup}) => {
-    const [inputValue, setInputValue] = useState('')
     const {userName} = useSelector(state => state.usersFilmsReducer)
+    const {search} = useSelector(state => state.movieReducer)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
 
     const changeValue = (value) => {
-        setInputValue(value)
         dispatch(movieActions.setSearch(value))
     }
 
@@ -30,9 +28,9 @@ const Header = ({setActivePopup}) => {
                 <div onClick={()=>navigate('/maine/films')} className={css.logo}>Vasyl Olesh</div>
                 <HeaderMenu/>
                 <div className={css.inputBlock} >
-                    <input type="text" required="required" value={inputValue} onChange={(elem)=>changeValue(elem.target.value)}/>
+                    <input type="text" required="required" value={search} onChange={(elem)=>changeValue(elem.target.value)}/>
                     <span>Find</span>
-                    <div className={css.searchIcon}>{inputValue?<FontAwesomeIcon onClick={()=>changeValue('')} icon={faXmark} />:<FontAwesomeIcon icon={faSearch} />}</div>
+                    <div className={css.searchIcon}>{search?<FontAwesomeIcon onClick={()=>changeValue('')} icon={faXmark} />:<FontAwesomeIcon icon={faSearch} />}</div>
                     <i></i>
                 </div>
                 <div className={css.userDiv}>
