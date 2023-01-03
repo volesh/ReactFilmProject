@@ -34,11 +34,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "bild": "react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d bild",
-    "predeploy": "npm run bild"
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
